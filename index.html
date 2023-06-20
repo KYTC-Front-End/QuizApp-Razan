@@ -11,12 +11,39 @@
     <header>
 
     </header>
-
+    <section class="game-start">
+        <input id="user" type="text" placeholder="Enter your name"/>
+        <button id="start" type="submit" onclick="startGame()">Start</button>
+    </section>
     <section class="questionSection">
+        <section class="numberOfQ">
 
+        </section>
+        <p id="questionTitle"></p>
+        <section class="choices">
+            <section>
+            <input onchange="enableNextBtn()" name="choice" type="radio"/>
+            <label id="choice1"> choice 1</label>
+        </section>
+        <section>
+            <input onchange="enableNextBtn()"  name="choice" type="radio"/>
+            <label id="choice2"> choice 2</label>
+        </section>
+        <section>
+            <input onchange="enableNextBtn()"  name="choice" type="radio"/>
+            <label id="choice3"> choice 3</label>
+        </section>
+        <section>
+            <input onchange="enableNextBtn()" name="choice" type="radio"/>
+            <label id="choice4"> choice 4</label>
+        </section>
+        </section>
+        
     </section>
     <section class="btnQuestion">
-
+        <button id="next" onclick="viewNextRandomQ()">
+            Next
+        </button>
     </section>
     
 
