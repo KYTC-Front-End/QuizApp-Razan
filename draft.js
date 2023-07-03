@@ -20,7 +20,6 @@ let userValue;
 let score = 0;
 let data = [];
 
-// userValue =userValue.value="ttt";
 
 function defaultPreferences() {
     user.style.display = "inline";
@@ -33,34 +32,24 @@ defaultPreferences();
 
 let addToLocalStorageArray = function (name, value) {
 
-    // Get the existing data
     let existing = localStorage.getItem(name);
 
-    // If no existing data, create an array
-    // Otherwise, convert the localStorage string to an array
     existing = existing ? existing.split(',') : [];
 
-    // Add new data to localStorage Array
+
     existing.push(value);
 
-    // Save back to localStorage
     localStorage.setItem(name, existing.toString());
 
 };
 
 
-// console.log(userValue);
 function startGame() {
     startBtn.addEventListener('click', (e) => {
         e.preventDefault();
-         userValue = user.value;
-        // console.log(userValue) // logs multiple values at a one time click ?
+        userValue = user.value;
         if (userValue != '') {
-            // let userArr = {};
-            // userArr.user = userValue;
-            // userArr.score = score;
-            // data.push(userArr);
-            // addToLocalStorageArray("data", JSON.stringify(userArr))
+
             viewQuiz();
         }
         else {
@@ -82,16 +71,16 @@ function viewQuiz() {
 
 function enableNextBtn() {
     var radioElements = document.querySelectorAll("input[type='radio']");
-    // console.log(radioElements);
+
     for (let radioel of radioElements) {
-        // console.log(radioel);
+
         if (radioel.checked) {
             nextBtn.disabled = false;
-            // console.log(questions[randomQuestion].correctAnswer);
+
             if (radioel.nextElementSibling.textContent == questions[randomQuestion].correctAnswer) {
 
                 score++;
-                // console.log(score);
+
             }
         }
 
@@ -116,7 +105,7 @@ function viewNextRandomQ() {
     choice2.textContent = questions[randomQuestion].answers[1];
     choice3.textContent = questions[randomQuestion].answers[2];
     choice4.textContent = questions[randomQuestion].answers[3];
-   
+
 
     if (currentQuestion <= questions.length) {
         numOfQ.textContent = currentQuestion + `/ ${questions.length}`;
@@ -125,7 +114,7 @@ function viewNextRandomQ() {
         clearDefaultChoice();
         nextBtn.disabled = true;
     }
-    
+
 
     else {
         nextSection.style.display = "none";
@@ -140,15 +129,6 @@ function viewNextRandomQ() {
             addToLocalStorageArray("data", JSON.stringify(userArr));
         }
 
-        // let storage = localStorage.getItem("data");
-        // let arr =storage.split("}");
-        // for(myArr of arr) {
-        //     // console.log(myArr);
-        //     if(myArr.includes(userValue)){
-        //         console.log(score);  // update final  score to the local storage
-
-        //     }
-        // }
     }
 
 }
