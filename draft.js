@@ -24,6 +24,14 @@ let userValue;
 let score = 0;
 let data = [];
 
+//1 add that random number can't be repeated.
+// score sorting 
+// add leader board btn at the home screen 
+// add to return back to the home when quiz funish 
+// change the btn to submit at the final question 
+// add timer for each question
+// random question dynamically depends on the array length.
+//
 
 function defaultPreferences() {
     resultInfo.style.display = "none";
