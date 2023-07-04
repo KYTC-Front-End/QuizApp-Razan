@@ -31,22 +31,15 @@ function defaultPreferences() {
     startBtn.style.display = "inline";
     nextSection.style.display = "none";
     questionSection.style.display = "none";
-    description.style.display="flex";
-
-   
+    description.style.display = "flex";
 }
 
 defaultPreferences();
 
 let addToLocalStorageArray = function (name, value) {
-
     let existing = localStorage.getItem(name);
-
     existing = existing ? existing.split(',') : [];
-
-
     existing.push(value);
-
     localStorage.setItem(name, existing.toString());
 
 };
@@ -55,14 +48,13 @@ let addToLocalStorageArray = function (name, value) {
 function startGame() {
     startBtn.addEventListener('click', (e) => {
         e.preventDefault();
-      
         userValue = user.value;
         if (userValue == '') {
-            error.style.display="block";
-            error.textContent="name is required";
+            error.style.display = "block";
+            error.textContent = "name is required";
         }
         if (userValue != '') {
-            error.style.display="none";
+            error.style.display = "none";
             viewQuiz();
         }
         else {
@@ -74,7 +66,7 @@ function startGame() {
 function viewQuiz() {
     user.style.display = "none";
     startBtn.style.display = "none";
-    description.style.display="none";
+    description.style.display = "none";
     nextBtn.disabled = true;
     questionSection.style.display = "block";
     nextSection.style.display = "block";
@@ -85,23 +77,14 @@ function viewQuiz() {
 
 function enableNextBtn() {
     var radioElements = document.querySelectorAll("input[type='radio']");
-
     for (let radioel of radioElements) {
-
         if (radioel.checked) {
             nextBtn.disabled = false;
-
             if (radioel.nextElementSibling.textContent == questions[randomQuestion].correctAnswer) {
-
                 score++;
-
             }
         }
-
-
-
     }
-
 }
 
 function clearDefaultChoice() {
@@ -112,29 +95,21 @@ function clearDefaultChoice() {
 }
 
 function viewNextRandomQ() {
-
     randomQuestion = (Math.random() * 10).toFixed(0);
     question.textContent = questions[randomQuestion].title;
     choice1.textContent = questions[randomQuestion].answers[0];
     choice2.textContent = questions[randomQuestion].answers[1];
     choice3.textContent = questions[randomQuestion].answers[2];
     choice4.textContent = questions[randomQuestion].answers[3];
-
-
     if (currentQuestion <= questions.length) {
         numOfQ.textContent = currentQuestion + `/ ${questions.length}`;
         currentQuestion++;
-
         clearDefaultChoice();
         nextBtn.disabled = true;
     }
-
-
     else {
         nextSection.style.display = "none";
         questionSection.style.display = "none";
-        // console.log(userValue);
-
         if (userValue != '') {
             let userArr = {};
             userArr.user = userValue;
@@ -146,7 +121,4 @@ function viewNextRandomQ() {
         resultValue.textContent = score + "/" + questions.length;
         console.log(score);
     }
-
 }
-
-
