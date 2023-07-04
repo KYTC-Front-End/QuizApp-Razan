@@ -56,3 +56,18 @@ currentQuestion++;
 
  }
 
+
+
+
+
+ let final = [];
+ for (myArr of arr)
+ {let scores = myArr.split('score":');
+ console.log(parseInt(scores[1])); 
+ final.push(parseInt(scores[1]));console.log(final);
+                   }
+
+ function compare(a,b) {return a-b}
+ 
+ final.sort(compare);
+

@@ -19,19 +19,21 @@ const error = document.querySelector(".error");
 const description = document.querySelector(".description");
 
 let randomQuestion;
-let currentQuestion = 0;
+let currentQuestion = 1;
 let userValue;
 let score = 0;
 let data = [];
 
 //1 add that random number can't be repeated.
-// score sorting 
+// score sorting (done but need to connect the score with the user name)
 // add leader board btn at the home screen 
 // add to return back to the home when quiz funish 
 // change the btn to submit at the final question 
 // add timer for each question
-// random question dynamically depends on the array length.
-//
+// random question dynamically depends on the array length. (done)
+// add box style.
+// revise code.
+// ask why should click two times to do the action.
 
 function defaultPreferences() {
     resultInfo.style.display = "none";
@@ -56,6 +58,7 @@ let addToLocalStorageArray = function (name, value) {
 function startGame() {
     startBtn.addEventListener('click', (e) => {
         e.preventDefault();
+        console.log("clicked");
         userValue = user.value;
         if (userValue == '') {
             error.style.display = "block";
@@ -103,7 +106,7 @@ function clearDefaultChoice() {
 }
 
 function viewNextRandomQ() {
-    randomQuestion = (Math.random() * 10).toFixed(0);
+    randomQuestion = (Math.random() * questions.length +1).toFixed(0);
     question.textContent = questions[randomQuestion].title;
     choice1.textContent = questions[randomQuestion].answers[0];
     choice2.textContent = questions[randomQuestion].answers[1];
@@ -126,7 +129,7 @@ function viewNextRandomQ() {
             addToLocalStorageArray("data", JSON.stringify(userArr));
         }
         resultInfo.style.display = "flex";
-        resultValue.textContent = score + "/" + questions.length;
+        resultValue.textContent = score + " out of " + questions.length;
         console.log(score);
     }
 }

@@ -9,10 +9,14 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    font-size: 1.5rem;
 }
 
-p.numberOfQ {
-    border-radius: 1px solid black;
+.qNum {
+    width: 3rem;
+    padding: 9px;
+    border: 4px solid #DA7422;
+    border-radius: 40px;
 
 }
 
@@ -60,6 +64,11 @@ p.numberOfQ {
   box-sizing: border-box;
 }
 
+#user:hover,#user:focus-visible{
+    border:7px solid #DA7422;
+
+}
+
 #start,#next {
     width: 100%;
     background-color: #DA7422;
@@ -84,3 +93,18 @@ p.numberOfQ {
   background-color: #f2f2f2;
   padding: 20px;
 }
+
+#questionTitle {
+    font-size: 2rem;
+    font-style: bold;
+    margin-bottom: 1rem;
+}
+
+.result-info{
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+
+}
+
+
