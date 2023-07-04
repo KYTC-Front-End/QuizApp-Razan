@@ -15,6 +15,7 @@ const radio3 = document.getElementById("radio3");
 const radio4 = document.getElementById("radio4");
 const resultInfo = document.querySelector(".result-info");
 const resultValue = document.querySelector(".result-value");
+const error = document.querySelector(".error");
 
 let randomQuestion;
 let currentQuestion = 1;
@@ -24,11 +25,12 @@ let data = [];
 
 
 function defaultPreferences() {
-    resultInfo.style.display="none";
+    resultInfo.style.display = "none";
     user.style.display = "inline";
     startBtn.style.display = "inline";
     nextSection.style.display = "none";
     questionSection.style.display = "none";
+   
 }
 
 defaultPreferences();
@@ -50,7 +52,12 @@ let addToLocalStorageArray = function (name, value) {
 function startGame() {
     startBtn.addEventListener('click', (e) => {
         e.preventDefault();
+      
         userValue = user.value;
+        if (userValue == '') {
+            error.style.display="block";
+            error.textContent="name is required";
+        }
         if (userValue != '') {
 
             viewQuiz();
@@ -122,7 +129,7 @@ function viewNextRandomQ() {
     else {
         nextSection.style.display = "none";
         questionSection.style.display = "none";
-       // console.log(userValue);
+        // console.log(userValue);
 
         if (userValue != '') {
             let userArr = {};
@@ -131,8 +138,8 @@ function viewNextRandomQ() {
             data.push(userArr);
             addToLocalStorageArray("data", JSON.stringify(userArr));
         }
-        resultInfo.style.display="flex";
-        resultValue.textContent=score+"/"+ questions.length;
+        resultInfo.style.display = "flex";
+        resultValue.textContent = score + "/" + questions.length;
         console.log(score);
     }
 
