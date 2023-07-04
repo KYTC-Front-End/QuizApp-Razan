@@ -1,56 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./style.css">
+    <link rel="stylesheet" href="./style.css">
     <title>Quiz App - Razan</title>
 </head>
-<body>
+
+<body class="body">
     <header>
 
     </header>
+    <section class="description">
+        <p>rules</p>
+        <ul>
+            <li>
+                Enter your name
+            </li>
+            <li>
+                Click on start btn
+            </li>
+            <li>
+                questions appears start solving them
+            </li>
+
+            <li>finaly your score appears </li>
+        </ul>
+    </section>
+
     <section class="game-start">
-        <input id="user" type="text" placeholder="Enter your name"/>
-        <button id="start" type="submit" onclick="startGame()">Start</button>
-    </section>
-    <section class="questionSection">
-        <p class="numberOfQ">
-        </p>
-        <p id="questionTitle"></p>
-        <section class="choices">
-            <section>
-            <input id="radio1" onchange="enableNextBtn()" name="choice" type="radio"/>
-            <label id="choice1"> choice 1</label>
+        <section>
+            <p class="error"></p>
         </section>
         <section>
-            <input id="radio2" onchange="enableNextBtn()"  name="choice" type="radio"/>
-            <label id="choice2"> choice 2</label>
+            <input id="user" size="50" type="text" placeholder="Enter your name" />
         </section>
         <section>
-            <input id="radio3" onchange="enableNextBtn()"  name="choice" type="radio"/>
-            <label id="choice3"> choice 3</label>
+            <button id="start" type="submit" onclick="startGame()">Start</button>
         </section>
-        <section>
-            <input id="radio4" onchange="enableNextBtn()" name="choice" type="radio"/>
-            <label id="choice4"> choice 4</label>
-        </section>
-        </section>
-        
+
     </section>
-    <section class="btnQuestion">
-        <button id="next" onclick="viewNextRandomQ()">
-            Next
-        </button>
+    <section class="question-container">
+        <section class="questionSection">
+            <p class="numberOfQ">
+            </p>
+            <p id="questionTitle"></p>
+            <section class="choices">
+                <section>
+                    <input id="radio1" onchange="enableNextBtn()" name="choice" type="radio" />
+                    <label id="choice1"> choice 1</label>
+                </section>
+                <section>
+                    <input id="radio2" onchange="enableNextBtn()" name="choice" type="radio" />
+                    <label id="choice2"> choice 2</label>
+                </section>
+                <section>
+                    <input id="radio3" onchange="enableNextBtn()" name="choice" type="radio" />
+                    <label id="choice3"> choice 3</label>
+                </section>
+                <section>
+                    <input id="radio4" onchange="enableNextBtn()" name="choice" type="radio" />
+                    <label id="choice4"> choice 4</label>
+                </section>
+            </section>
+
+        </section>
+        <section class="btnQuestion">
+            <button id="next" onclick="viewNextRandomQ()">
+                Next
+            </button>
+        </section>
     </section>
-    
+
+
+    <section class="result-info">
+        <h1>Your Result </h1>
+        <p class="result-value"></p>
+    </section>
 
     <footer>
-        
+
     </footer>
     <script src="./Question.js"></script>
     <!-- <script src="./script.js"></script> -->
     <script src="./draft.js"></script>
 </body>
+
 </html>
