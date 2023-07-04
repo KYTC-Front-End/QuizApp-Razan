@@ -8,3 +8,30 @@ p.numberOfQ{
     border-radius:1px solid black;
 
 }
+
+body{
+    background-color: #FFFBDB;
+}
+
+.game-start{
+    margin-top: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+#start:hover{
+background-color: #625834;
+color:white;
+}
+
+.question-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.result-info{
+    justify-content: center;
+    align-items: center;
+}

@@ -13,6 +13,8 @@ const radio1 = document.getElementById("radio1");
 const radio2 = document.getElementById("radio2");
 const radio3 = document.getElementById("radio3");
 const radio4 = document.getElementById("radio4");
+const resultInfo = document.querySelector(".result-info");
+const resultValue = document.querySelector(".result-value");
 
 let randomQuestion;
 let currentQuestion = 1;
@@ -22,6 +24,7 @@ let data = [];
 
 
 function defaultPreferences() {
+    resultInfo.style.display="none";
     user.style.display = "inline";
     startBtn.style.display = "inline";
     nextSection.style.display = "none";
@@ -62,8 +65,8 @@ function viewQuiz() {
     user.style.display = "none";
     startBtn.style.display = "none";
     nextBtn.disabled = true;
-    nextSection.style.display = "block";
     questionSection.style.display = "block";
+    nextSection.style.display = "block";
     numOfQ.textContent = currentQuestion + `/ ${questions.length}`;
     viewNextRandomQ();
     enableNextBtn();
@@ -119,7 +122,7 @@ function viewNextRandomQ() {
     else {
         nextSection.style.display = "none";
         questionSection.style.display = "none";
-        console.log(userValue);
+       // console.log(userValue);
 
         if (userValue != '') {
             let userArr = {};
@@ -128,7 +131,9 @@ function viewNextRandomQ() {
             data.push(userArr);
             addToLocalStorageArray("data", JSON.stringify(userArr));
         }
-
+        resultInfo.style.display="flex";
+        resultValue.textContent=score+"/"+ questions.length;
+        console.log(score);
     }
 
 }
