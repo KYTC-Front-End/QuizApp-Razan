@@ -16,9 +16,10 @@ const radio4 = document.getElementById("radio4");
 const resultInfo = document.querySelector(".result-info");
 const resultValue = document.querySelector(".result-value");
 const error = document.querySelector(".error");
+const description = document.querySelector(".description");
 
 let randomQuestion;
-let currentQuestion = 1;
+let currentQuestion = 0;
 let userValue;
 let score = 0;
 let data = [];
@@ -30,6 +31,8 @@ function defaultPreferences() {
     startBtn.style.display = "inline";
     nextSection.style.display = "none";
     questionSection.style.display = "none";
+    description.style.display="flex";
+
    
 }
 
@@ -59,7 +62,7 @@ function startGame() {
             error.textContent="name is required";
         }
         if (userValue != '') {
-
+            error.style.display="none";
             viewQuiz();
         }
         else {
@@ -71,6 +74,7 @@ function startGame() {
 function viewQuiz() {
     user.style.display = "none";
     startBtn.style.display = "none";
+    description.style.display="none";
     nextBtn.disabled = true;
     questionSection.style.display = "block";
     nextSection.style.display = "block";
