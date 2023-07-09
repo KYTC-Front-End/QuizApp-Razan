@@ -24,6 +24,16 @@ let userValue;
 let score = 0;
 let data = [];
 
+//1 add that random number can't be repeated.
+// score sorting (done but need to connect the score with the user name)
+// add leader board btn at the home screen 
+// add to return back to the home when quiz funish 
+// change the btn to submit at the final question 
+// add timer for each question
+// random question dynamically depends on the array length. (done)
+// add box style.
+// revise code.
+// ask why should click two times to do the action.
 
 function defaultPreferences() {
     resultInfo.style.display = "none";
@@ -31,22 +41,15 @@ function defaultPreferences() {
     startBtn.style.display = "inline";
     nextSection.style.display = "none";
     questionSection.style.display = "none";
-    description.style.display="flex";
-
-   
+    description.style.display = "flex";
 }
 
 defaultPreferences();
 
 let addToLocalStorageArray = function (name, value) {
-
     let existing = localStorage.getItem(name);
-
     existing = existing ? existing.split(',') : [];
-
-
     existing.push(value);
-
     localStorage.setItem(name, existing.toString());
 
 };
@@ -55,14 +58,14 @@ let addToLocalStorageArray = function (name, value) {
 function startGame() {
     startBtn.addEventListener('click', (e) => {
         e.preventDefault();
-      
+        console.log("clicked");
         userValue = user.value;
         if (userValue == '') {
-            error.style.display="block";
-            error.textContent="name is required";
+            error.style.display = "block";
+            error.textContent = "name is required";
         }
         if (userValue != '') {
-            error.style.display="none";
+            error.style.display = "none";
             viewQuiz();
         }
         else {
@@ -74,7 +77,7 @@ function startGame() {
 function viewQuiz() {
     user.style.display = "none";
     startBtn.style.display = "none";
-    description.style.display="none";
+    description.style.display = "none";
     nextBtn.disabled = true;
     questionSection.style.display = "block";
     nextSection.style.display = "block";
@@ -85,23 +88,14 @@ function viewQuiz() {
 
 function enableNextBtn() {
     var radioElements = document.querySelectorAll("input[type='radio']");
-
     for (let radioel of radioElements) {
-
         if (radioel.checked) {
             nextBtn.disabled = false;
-
             if (radioel.nextElementSibling.textContent == questions[randomQuestion].correctAnswer) {
-
                 score++;
-
             }
         }
-
-
-
     }
-
 }
 
 function clearDefaultChoice() {
@@ -112,29 +106,21 @@ function clearDefaultChoice() {
 }
 
 function viewNextRandomQ() {
-
-    randomQuestion = (Math.random() * 10).toFixed(0);
+    randomQuestion = (Math.random() * 12).toFixed(0);
     question.textContent = questions[randomQuestion].title;
     choice1.textContent = questions[randomQuestion].answers[0];
     choice2.textContent = questions[randomQuestion].answers[1];
     choice3.textContent = questions[randomQuestion].answers[2];
     choice4.textContent = questions[randomQuestion].answers[3];
-
-
     if (currentQuestion <= questions.length) {
         numOfQ.textContent = currentQuestion + `/ ${questions.length}`;
         currentQuestion++;
-
         clearDefaultChoice();
         nextBtn.disabled = true;
     }
-
-
     else {
         nextSection.style.display = "none";
         questionSection.style.display = "none";
-        // console.log(userValue);
-
         if (userValue != '') {
             let userArr = {};
             userArr.user = userValue;
@@ -143,10 +129,7 @@ function viewNextRandomQ() {
             addToLocalStorageArray("data", JSON.stringify(userArr));
         }
         resultInfo.style.display = "flex";
-        resultValue.textContent = score + "/" + questions.length;
+        resultValue.textContent = score + " out of " + questions.length;
         console.log(score);
     }
-
 }
-
-

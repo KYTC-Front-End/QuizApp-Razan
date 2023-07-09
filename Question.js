@@ -81,7 +81,7 @@ let questions = [
         correctAnswer : "both (a) and (c) are correct.",
     },
     {
-        title:"In a region of constant potential ?",
+        title:"11 In a region of constant potential ?",
         answers: ["there can be no charge inside the region.",
         "the electric field is uniform.",
         "the electric field is zero.",
@@ -89,7 +89,7 @@ let questions = [
         correctAnswer : "both (a) and (c) are correct.",
     },
     {
-        title:"In a region of constant potential ?",
+        title:"12 In a region of constant potential ?",
         answers: ["there can be no charge inside the region.",
         "the electric field is uniform.",
         "the electric field is zero.",
