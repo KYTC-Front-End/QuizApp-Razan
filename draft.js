@@ -19,7 +19,7 @@ const error = document.querySelector(".error");
 const description = document.querySelector(".description");
 
 let randomQuestion;
-let currentQuestion = 1;
+let currentQuestion = 0;
 let userValue;
 let score = 0;
 let data = [];
@@ -106,7 +106,7 @@ function clearDefaultChoice() {
 }
 
 function viewNextRandomQ() {
-    randomQuestion = (Math.random() * questions.length +1).toFixed(0);
+    randomQuestion = (Math.random() * 12).toFixed(0);
     question.textContent = questions[randomQuestion].title;
     choice1.textContent = questions[randomQuestion].answers[0];
     choice2.textContent = questions[randomQuestion].answers[1];
