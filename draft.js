@@ -19,7 +19,7 @@ const error = document.querySelector(".error");
 const description = document.querySelector(".description");
 
 let randomQuestion;
-let currentQuestion = 0;
+let currentQuestion = 1;
 let userValue;
 let score = 0;
 let data = [];
@@ -122,14 +122,32 @@ function viewNextRandomQ() {
         nextSection.style.display = "none";
         questionSection.style.display = "none";
         if (userValue != '') {
-            let userArr = {};
+            let userObject = {};
             userArr.user = userValue;
             userArr.score = score;
-            data.push(userArr);
-            addToLocalStorageArray("data", JSON.stringify(userArr));
+            data.push(userObject);
+            addToLocalStorageArray("data", JSON.stringify(data));
         }
         resultInfo.style.display = "flex";
         resultValue.textContent = score + " out of " + questions.length;
         console.log(score);
+    }
+
+
+
+
+}
+
+function sortLeaderBoard() {
+    // console.log(Array.isArray(data) );
+    let arr = localStorage.data.split("},");
+    // console.log(arr);
+    let names = [];
+    let scores = [];
+    for (let i = 0; i <= arr.length; i++) {
+        console.log(arr[i]);
+        // for(obj in arr[i]){
+        //     // console.log(obj['score']);
+        // }
     }
 }
